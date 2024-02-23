@@ -35,7 +35,7 @@
 <script>
 import axios from 'axios';
 
-const site = 'https://vue3-course-api.hexschool.io/v2/';
+const { VITE_URL } = import.meta.env;
 
 export default {
   data() {
@@ -48,19 +48,22 @@ export default {
   },
   methods: {
     login() {
-      const api = `${site}admin/signin`;
+      const api = `${VITE_URL}/v2/admin/signin`;
       axios.post(api, this.user).then((response) => {
         const { token, expired } = response.data;
-        console.log(token, expired);
+        // console.log(token, expired);
         // 寫入 cookie token
         // expires 設置有效時間
         document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
-        // window.location = 'products.html';
+        this.$router.push('/admin/products');
       }).catch(() => {
         // alert(err.response.data.message);
         alert('登入失敗');
       });
     },
+  },
+  mounted() {
+    // console.log(this.$router, this.$route);
   },
 };
 </script>
