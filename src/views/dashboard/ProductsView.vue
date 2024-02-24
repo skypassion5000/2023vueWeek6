@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    這裡是 後台 產品列表
+  <div class="mt-4">
+    <h2>這裡是 後台 產品列表</h2>
     <table class="table mt-4">
       <thead>
         <tr>

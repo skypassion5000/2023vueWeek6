@@ -4,7 +4,6 @@
       <li :class="{ disabled: !pages.has_pre }" class="page-item">
         <a
           class="page-link"
-          href="#"
           aria-label="Previous"
           @click.prevent="updatePage(pages.current_page - 1)"
         >
@@ -23,7 +22,6 @@
         <a
           class="page-link"
           v-else
-          href="#"
           @click.prevent="updatePage(page)"
           >{{ page }}</a
         >
@@ -31,7 +29,6 @@
       <li class="page-item" :class="{ disabled: !pages.has_next }">
         <a
           class="page-link"
-          href="#"
           aria-label="Next"
           @click.prevent="updatePage(pages.current_page + 1)"
         >
